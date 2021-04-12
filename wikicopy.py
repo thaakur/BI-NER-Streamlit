@@ -16,11 +16,9 @@ def main():
 	
 	st.subheader("Named Entity Recognition")
 
-	raw_text = st.text_area("Your Text","Enter Any Name")
-	for i in range(20):
-		docx = nlp(wikipedia.summary(raw_text,sentences=5))
-		if st.button("Display About Topic"):
-			spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
+	raw_text = st.text_area("Enter Text Below (clear the template of Sachin Tendulkar first)","Sachin Tendulkar")
+	docx = nlp(wikipedia.summary(wikipedia.search(raw_text,results=1),sentences=5))
+	spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
 
 
 if __name__ == '__main__':
