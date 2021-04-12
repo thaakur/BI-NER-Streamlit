@@ -15,8 +15,9 @@ def main():
 	st.title("Board Infinity TASK")
 	
 	st.subheader("Named Entity Recognition")
+
+	raw_text = st.text_area("Your Text","Enter Any Name")
 	for i in range(20):
-		raw_text = st.text_area("Your Text","Enter Any Name")
 		docx = nlp(wikipedia.summary(raw_text,sentences=5))
 		if st.button("Display About Topic"):
 			spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
