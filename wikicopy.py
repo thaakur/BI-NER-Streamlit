@@ -16,7 +16,7 @@ def main():
 	
 	st.subheader("Named Entity Recognition")
 
-	raw_text = st.text_area("Enter Text Below (clear the template of Sachin Tendulkar first)","Sachin Tendulkar")
+	raw_text = st.text_area("Enter Text Below and press Ctrl+Enter (clear the template of Sachin Tendulkar first)","Sachin Tendulkar")
 	docx = nlp(wikipedia.summary(wikipedia.search(raw_text,results=1),sentences=5))
 	spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
 
